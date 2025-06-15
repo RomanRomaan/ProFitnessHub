@@ -228,7 +228,7 @@ a {
 
 }
 
-.exercise-card button {
+/* .exercise-card button {
     background: #179a4a;
     color: #fff;
     font-weight: 700;
@@ -239,10 +239,41 @@ a {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
     cursor: pointer;
     transition: background 0.2s;
+} */
+
+button {
+    background: #179a4a;
+    color: #fff;
+    font-weight: 700;
+    padding: 8px 18px;
+    font-size: 1.25em;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-bottom: 20px;
 }
 
 @media (max-width: 800px) {
     .exercises-list {
         grid-template-columns: 1fr;
     }
+}
+
+/* ------squads------- */
+.exercise-image img {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 5%;
+    margin-bottom: 18px;
+}
+
+.exercise-info h1,
+p,
+h3,
+ul,
+li {
+    margin-bottom: 20px;
 }
