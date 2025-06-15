@@ -1,0 +1,248 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', Arial, sans-serif;
+    color: #222;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 600;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.header {
+    background: linear-gradient(90deg, #137C59, #17A977);
+    color: #fff;
+    padding: 20px 0;
+    border-bottom: 2px solid #000000;
+}
+
+/* Только для хедера! */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Остальное без display: flex на .container! */
+
+.logo a {
+    display: flex;
+    align-items: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6em;
+    font-weight: 800;
+    color: #00ff80;
+    letter-spacing: 2px;
+    transition: color 0.2s;
+}
+
+.logo a:hover {
+    color: #17a977;
+}
+
+.slogan {
+    font-size: 1em;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 400;
+    margin-left: 8px;
+    letter-spacing: 1px;
+}
+
+.menu ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.auth {
+    font-size: 1em;
+}
+
+.main {
+    margin-top: 5%;
+}
+
+.main-banner {
+    background: #f9fffc;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 48px 60px;
+    gap: 48px;
+    /* max-width: 1000px; */
+    width: 100%;
+    margin: 40px auto;
+}
+
+.banner-text {
+    flex: 1;
+    text-align: left;
+}
+
+.banner-text h1 {
+    font-size: 2.7em;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 24px;
+}
+
+.banner-text p {
+    font-size: 1.25em;
+    margin-bottom: 32px;
+    color: #222;
+}
+
+.banner-text button {
+    background: #179a4a;
+    color: #fff;
+    font-weight: 700;
+    padding: 16px 36px;
+    font-size: 1.25em;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.banner-text button:hover {
+    background: #137c59;
+}
+
+.banner-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.banner-image img {
+    border-radius: 18px;
+    width: 100%;
+    max-width: 380px;
+    height: auto;
+    object-fit: cover;
+}
+
+/* footer */
+
+.footer {
+    background: linear-gradient(90deg, #013826, #000000);
+    color: #fff;
+    padding: 20px 0;
+    border-bottom: 2px solid #928c8c;
+}
+
+
+.footer-container {
+    display: flex;
+    flex-direction: row;
+    /* ← ключевой момент */
+    justify-content: center;
+    gap: 80px;
+    /* расстояние между колонками */
+    align-items: flex-start;
+    /* выравнивание по верху */
+    padding: 32px 0;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.footer-col a {
+    color: #fff;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.footer-col a:hover {
+    color: #00ff80;
+}
+
+.footer-col p {
+    font-weight: bold;
+}
+
+/* ========== Exercises page ========== */
+.exercises-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 32px;
+    margin: 40px auto;
+    max-width: 1000px;
+}
+
+.exercise-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
+    padding: 24px;
+    text-align: center;
+    transition: transform 0.18s;
+
+}
+
+.exercise-card:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 8px 36px rgba(0, 0, 0, 0.10);
+}
+
+.exercise-card img {
+    width: 141px;
+    height: 116px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 18px;
+}
+
+
+.exercises-title {
+    font-size: 2.2em;
+    font-weight: 800;
+    margin-bottom: 36px;
+}
+
+.exercise-card p {
+    margin-bottom: 20px;
+    font-size: 0.95em;
+    color: #666;
+
+}
+
+.exercise-card button {
+    background: #179a4a;
+    color: #fff;
+    font-weight: 700;
+    padding: 8px 18px;
+    font-size: 1.25em;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+@media (max-width: 800px) {
+    .exercises-list {
+        grid-template-columns: 1fr;
+    }
+}
