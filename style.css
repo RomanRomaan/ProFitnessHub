@@ -384,7 +384,7 @@ a:hover {
     flex: 1;
     text-align: right;
     font-weight: 800;
-    color: #ffd600;
+    color: #e1bd02;
     font-size: 1.15em;
     letter-spacing: 1px;
 }
@@ -417,7 +417,7 @@ a:hover {
 
 }
 
-/* -- */
+
 .bmi-center {
     display: flex;
     flex-direction: column;
