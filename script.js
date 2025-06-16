@@ -120,7 +120,7 @@ else {
                                             <p>Your calorie allowance for weight maintenance <span class="result-value">${Math.round(caloriesMaintain)}</span> <span class="result-unit">kcal</span> with current physical activity                                         (you are not losing or gaining weight)</p>`
 
                 resultInfoDiv.style.display = "block";
-                if (bmi > 25 || bmi < 18.5) {
+                if (bmi > 25) {
                     bmiInfoDiv.innerHTML = `
                         <div class="bmi-center">
                          <div class="bmi-label">Your BMI is</div>
@@ -129,6 +129,15 @@ else {
                                              It is <span class="red-value">recommended</span> that you reduce your weight</div>
                                                         </div>
                         `;
+                    bmiInfoDiv.style.display = "flex";
+                } else if (bmi < 18.5) {
+                    bmiInfoDiv.innerHTML = `
+                    <div class="bmi-center">
+                        <div class="bmi-label">Your BMI is</div>
+                        <div class="bmi-badvalue">${bmi}</div>
+                        <div class="bmi-normal">(normal is 18.5 to 25)
+                            It is <span class="red-value">recommended</span> to increase the weight</div>
+                    </div>`
                     bmiInfoDiv.style.display = "flex";
                 } else {
                     bmiInfoDiv.innerHTML = `

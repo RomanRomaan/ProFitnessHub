@@ -456,8 +456,9 @@ a:hover {
     margin-top: 4px;
 }
 
-.red-value {
+.result-card .red-value {
     color: #ff0000;
+    font-weight: 600;
 }
 
 .bmi-normal {
