@@ -34,6 +34,31 @@
     </header>
     <main class="main">
         <div class="container">
+            <form id="calcForm">
+                <label for="age">Age:</label>
+                <input id="age" name="age" type="number" min="7" max="119" required placeholder="Enter your age">
+
+                <label for="height">Height (cm):</label>
+                <input id="height" name="height" type="number" min="20" max="230" required
+                    placeholder="Enter your height">
+
+                <label for="weight">Weight (kg):</label>
+                <input id="weight" name="weight" type="number" min="20" max="199" required
+                    placeholder="Enter your weight">
+
+                <label for="Activity">Activity:</label>
+                <select id="Activity" name="Activity" required>
+                    <option value="">Select activity</option>
+                    <option value="1">Sedentary</option>
+                    <option value="2">Low activity</option>
+                    <option value="3">Moderate activity</option>
+                    <option value="4">Very active</option>
+                    <option value="5">Extremely active</option>
+                </select>
+
+                <button type="submit">Calculate</button>
+            </form>
+
             <h1 class=resulth1 style="text-align: center;">Calculate your kcal</h1>
             <div class="results-inner">
 
