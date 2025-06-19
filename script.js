@@ -168,16 +168,17 @@ form.addEventListener('submit', function (event) {
     const weight = +document.getElementById('weight').value;
     const activity = +document.getElementById('Activity').value;
     const gender = document.getElementById('sex').value;
+    const resultDiv = document.getElementById('result');
+    const resultInfoDiv = document.getElementById('result-info');
+    const bmiInfoDiv = document.getElementById('bmi-info');
+    const resultH1 = document.querySelector('.resulth1');
 
     const reload = document.getElementById('reloadBtn');
     reload.onclick = function () {
         location.reload();
     };
 
-    const resultDiv = document.getElementById('result');
-    const resultInfoDiv = document.getElementById('result-info');
-    const bmiInfoDiv = document.getElementById('bmi-info');
-    const resultH1 = document.querySelector('.resulth1');
+
     const activityCoeffs = {
         1: 1.2,
         2: 1.375,
@@ -185,7 +186,11 @@ form.addEventListener('submit', function (event) {
         4: 1.725,
         5: 1.9
     };
-
+    function showResults() {
+        form.style.display = 'none';
+        reload.style.display = 'block';
+        bmiInfoDiv.style.display = "flex";
+    }
 
 
 
@@ -216,14 +221,14 @@ form.addEventListener('submit', function (event) {
     let activityLevel = Number(activity);
 
     // We get the coefficient by activity level (if not selected - default 1)
-    let coeff = activityCoeffs[activityLevel] || 1;
+    let activityCoeff = activityCoeffs[activityLevel];
 
-    let caloriesMaintain = BMR * coeff;
+    let caloriesMaintain = BMR * activityCoeff;
 
 
     const baseMetabolism = caloriesMaintain * 0.8;
-    caloriesLose = caloriesMaintain - (caloriesMaintain * 0.15);
-    caloriesGain = caloriesMaintain * 1.15;
+    const caloriesLose = caloriesMaintain - (caloriesMaintain * 0.15);
+    const caloriesGain = caloriesMaintain * 1.15;
     const bmi = Number((weight / ((height / 100) * (height / 100))).toFixed(1));
 
 
@@ -269,7 +274,8 @@ form.addEventListener('submit', function (event) {
                             </div>
                         </div>
                     `;
-        bmiInfoDiv.style.display = "flex";
+
+        showResults()
     } else if (bmi < 18.5) {
         bmiInfoDiv.innerHTML = `
                         <div class="bmi-center">
@@ -280,8 +286,8 @@ form.addEventListener('submit', function (event) {
                             </div>
                         </div>
                     `;
-        bmiInfoDiv.style.display = "flex";
-        form.style.display = 'none';
+
+        showResults()
 
     } else {
         bmiInfoDiv.innerHTML = `
@@ -291,9 +297,8 @@ form.addEventListener('submit', function (event) {
                             <div class="bmi-normal">(normal is 18.5 to 25)</div>
                         </div>
                     `;
-        bmiInfoDiv.style.display = "flex";
-        form.style.display = 'none';
-        reload.style.display = 'block';
+
+        showResults()
 
 
     }
