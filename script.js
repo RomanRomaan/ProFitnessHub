@@ -220,7 +220,7 @@ form.addEventListener('submit', function (event) {
     // activity - is a value from select, i.e. a string. It must be converted to a number!
     let activityLevel = Number(activity);
 
-    // We get the coefficient by activity level (if not selected - default 1)
+    // We get the coefficient by activity level 
     let activityCoeff = activityCoeffs[activityLevel];
 
     let caloriesMaintain = BMR * activityCoeff;

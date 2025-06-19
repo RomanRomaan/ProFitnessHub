@@ -311,6 +311,30 @@ a:hover {
 }
 
 /* ------------kcal output--- */
+.burger {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.burger span {
+    display: block;
+    width: 28px;
+    height: 4px;
+    margin: 4px 0;
+    background: #ddff00;
+    /* Цвет полосок */
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
 .result-card {
     background: #fff;
     border-radius: 18px;
