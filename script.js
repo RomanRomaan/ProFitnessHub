@@ -167,6 +167,7 @@ form.addEventListener('submit', function (event) {
     const height = +document.getElementById('height').value;
     const weight = +document.getElementById('weight').value;
     const activity = +document.getElementById('Activity').value;
+    const reload = document.getElementById('reloadBtn')
 
 
 
@@ -181,6 +182,7 @@ form.addEventListener('submit', function (event) {
     const resultInfoDiv = document.getElementById('result-info');
     const bmiInfoDiv = document.getElementById('bmi-info');
     const resultH1 = document.querySelector('.resulth1');
+
 
 
 
@@ -273,8 +275,13 @@ form.addEventListener('submit', function (event) {
                     `;
         bmiInfoDiv.style.display = "flex";
         form.style.display = 'none';
+        reload.style.display = 'block';
+
 
     }
 }
 
-); 
+);
+reload.onclick = function () {
+    location.reload();
+};
