@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ProFitnessHub — Your online exercise guide</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700&display=swap" rel="stylesheet">
@@ -16,26 +17,35 @@
                 <a href="#">ProFitnessHub</a>
                 <span class="slogan">your online exercise guide</span>
             </div>
-            <div class="menu">
-                <nav>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="/exercises.html">Exercises</a></li>
-                        <li><a class="selected" href="#">Calculate kcal</a></li>
-                        <li><a href="#">Recipes</a></li>
-                        <li><a href="#">Contacts</a></li>
-                    </ul>
-                </nav>
-            </div>
+            <nav class="menu">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="/exercises.html">Exercises</a></li>
+                    <li><a class="selected" href="#">Calculate kcal</a></li>
+                    <li><a href="#">Recipes</a></li>
+                    <li><a href="#">Contacts</a></li>
+                </ul>
+            </nav>
             <div class="auth">
                 <a href="#">Login</a> | <a href="#">Register</a>
             </div>
             <button class="burger" id="burger" aria-label="Open menu" type="button">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </button>
         </div>
+
+        <!-- Мобильное меню -->
+        <nav class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="/exercises.html">Exercises</a></li>
+                <li><a class="selected" href="#">Calculate kcal</a></li>
+                <li><a href="#">Recipes</a></li>
+                <li><a href="#">Contacts</a></li>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Register</a></li>
+            </ul>
+        </nav>
     </header>
     <main class="main">
         <div class="container">

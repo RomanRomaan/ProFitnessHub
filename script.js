@@ -305,3 +305,20 @@ form.addEventListener('submit', function (event) {
 }
 
 );
+const burger = document.getElementById('burger');
+const mobileMenu = document.getElementById('mobileMenu');
+
+burger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+});
+
+// Клик вне меню — закрыть (не обязательно, но удобно)
+document.addEventListener('click', (e) => {
+    if (
+        !e.target.closest('#burger') &&
+        !e.target.closest('#mobileMenu') &&
+        mobileMenu.classList.contains('open')
+    ) {
+        mobileMenu.classList.remove('open');
+    }
+});

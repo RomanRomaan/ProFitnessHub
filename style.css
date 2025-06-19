@@ -4,7 +4,13 @@
     box-sizing: border-box;
 }
 
+html {
+    min-width: 0;
+    width: 100%;
+}
+
 body {
+
     font-family: 'Montserrat', Arial, sans-serif;
     color: #222;
 }
@@ -16,9 +22,11 @@ a {
 }
 
 .container {
+
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 24px;
+    width: 100%;
 }
 
 .header {
@@ -26,6 +34,12 @@ a {
     color: #fff;
     padding: 20px 0;
     border-bottom: 2px solid #000000;
+    width: 100vw;
+    /* min-width: 320px; */
+    /* left: 0; */
+    /* top: 0; */
+    position: relative;
+    /* z-index: 10; */
 }
 
 /* Только для хедера! */
@@ -214,7 +228,6 @@ a {
     margin-bottom: 18px;
 }
 
-
 .exercises-title {
     font-size: 2.2em;
     font-weight: 800;
@@ -311,29 +324,6 @@ a:hover {
 }
 
 /* ------------kcal output--- */
-.burger {
-    width: 36px;
-    height: 36px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    background: none;
-    border: none;
-    padding: 0;
-}
-
-.burger span {
-    display: block;
-    width: 28px;
-    height: 4px;
-    margin: 4px 0;
-    background: #ddff00;
-    /* Цвет полосок */
-    border-radius: 2px;
-    transition: 0.3s;
-}
 
 .result-card {
     background: #fff;
@@ -437,10 +427,7 @@ a:hover {
 #bmi-info {
     padding-top: 150px;
     width: 20px;
-
-
 }
-
 
 .bmi-center {
     display: flex;
@@ -466,7 +453,6 @@ a:hover {
     padding: 10px 36px;
     margin-bottom: 12px;
     margin-top: 4px;
-
 }
 
 .bmi-badvalue {
@@ -542,7 +528,6 @@ label {
 }
 
 input::placeholder {
-
     opacity: 0.5;
 }
 
@@ -553,9 +538,231 @@ form button {
 
 form button:active {
     transform: scale(0.97);
-
 }
 
 #reloadBtn {
     display: none;
+}
+
+/* ======================= Мобильное меню ======================== */
+
+/* -- Только wrapper если используешь .burger-menu-wrapper -- */
+.burger-menu-wrapper {
+    position: relative;
+}
+
+/* Кнопка бургер */
+.burger {
+    display: none;
+    width: 36px;
+    height: 36px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    z-index: 2020;
+}
+
+.burger span {
+    display: block;
+    width: 28px;
+    height: 4px;
+    margin: 4px 0;
+    background: #ddff00;
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+/* Показывать бургер и скрывать обычное меню на мобилках */
+@media (max-width: 900px) {
+
+    .menu,
+    .auth {
+        display: none;
+    }
+
+    .burger {
+        display: flex;
+    }
+}
+
+/* Стили самого мобильного меню - исправлено! */
+.mobile-menu {
+    display: none;
+    position: absolute;
+    top: 54px;
+    /* ниже хедера и бургер-иконки */
+    right: 16px;
+    /* отступ справа, чтобы не упиралось в край */
+    left: auto;
+    min-width: 210px;
+    max-width: 90vw;
+    background: linear-gradient(90deg, #137C59, #17A977);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.16);
+    padding: 12px 0;
+    z-index: 2100;
+    opacity: 0;
+    transform: translateY(-10px) scale(0.96);
+    transition: opacity .18s, transform .18s;
+}
+
+.mobile-menu.open {
+    display: block;
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.mobile-menu ul {
+    flex-direction: column;
+    gap: 10px;
+    margin: 0;
+    padding: 0 14px;
+    list-style: none;
+    display: flex;
+}
+
+.mobile-menu li {
+    width: 100%;
+}
+
+.mobile-menu a {
+    display: block;
+    width: 100%;
+    color: #fff;
+    padding: 9px 0;
+    border-radius: 8px;
+    font-size: 1.05em;
+    font-weight: 600;
+    text-align: left;
+    transition: background 0.15s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mobile-menu a:hover,
+.mobile-menu a.selected {
+    background: #137c59;
+    color: #ddff00;
+}
+
+/* Узкие экраны — меню не вылезает вправо */
+@media (max-width: 500px) {
+    .mobile-menu {
+        width: 95vw;
+        max-width: 98vw;
+        right: 2vw;
+        left: unset;
+        padding-left: 0;
+        padding-right: 0;
+        border-radius: 10px;
+    }
+
+    .mobile-menu ul {
+        padding: 0 6px;
+    }
+}
+
+@keyframes fadeInMenu {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* Твои адаптивные и доп. стили оставлены как есть ниже */
+
+@media (max-width: 942px) {
+
+    .auth {
+        font-size: 0.7em;
+    }
+
+    ul li {
+        font-size: 0.7em;
+    }
+
+    .logo a,
+    .slogan {
+        font-size: 0.7em;
+    }
+
+}
+
+@media (max-width: 700px) {
+    .mobile-menu {
+        right: 3vw;
+        /* чуть отступ справа */
+        left: auto;
+        /* убираем левый край */
+        min-width: 0;
+        max-width: 97vw;
+        width: 94vw;
+        border-radius: 12px;
+        padding: 8px 0;
+    }
+}
+
+@media (max-width:791px) {
+    .burger {
+        display: flex;
+        margin-right: 24px;
+    }
+
+    .auth {
+        display: none;
+    }
+
+    .menu {
+        display: none;
+    }
+}
+
+@media (max-width:669px) {
+    .menu-contacts {
+        display: none;
+    }
+}
+
+@media (max-width:600px) {
+    .menu-recipies {
+        display: none;
+    }
+}
+
+@media (min-width: 530px) {
+    .menu {
+        display: block;
+        position: static;
+        background: none;
+    }
+}
+
+@media (max-width:529px) {
+
+    .menu {
+        display: none;
+    }
+
+    .mobile-menu {
+        width: 97vw;
+        max-width: 99vw;
+        right: 1vw;
+        left: unset;
+        border-radius: 10px;
+        padding: 16px 0;
+    }
+
+    .mobile-menu ul {
+        padding: 0 3px;
+    }
 }
