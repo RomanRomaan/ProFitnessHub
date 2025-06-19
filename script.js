@@ -160,9 +160,9 @@
 const form = document.getElementById('calcForm');
 
 form.addEventListener('submit', function (event) {
-    event.preventDefault(); // не перезагружать страницу
+    event.preventDefault(); // stay on the page, reload by click is off
 
-    // Получаем значения всех полей
+    // Get the values of all fields
     const age = +document.getElementById('age').value;
     const height = +document.getElementById('height').value;
     const weight = +document.getElementById('weight').value;
@@ -178,32 +178,48 @@ form.addEventListener('submit', function (event) {
     const resultInfoDiv = document.getElementById('result-info');
     const bmiInfoDiv = document.getElementById('bmi-info');
     const resultH1 = document.querySelector('.resulth1');
+    const activityCoeffs = {
+        1: 1.2,
+        2: 1.375,
+        3: 1.55,
+        4: 1.725,
+        5: 1.9
+    };
 
 
 
 
-    let BMR;
+    let BMR; //BMR calculating by gender
     if (gender === "male") {
         BMR = 10 * weight + 6.25 * height - 5 * age + 5;
     } else {
         BMR = 10 * weight + 6.25 * height - 5 * age - 161;
     }
 
-    let caloriesMaintain;
+    // let caloriesMaintain;
 
-    if (activity === 1) {
-        caloriesMaintain = BMR * 1.2;
-    } else if (activity === 2) {
-        caloriesMaintain = BMR * 1.375;
-    } else if (activity === 3) {
-        caloriesMaintain = BMR * 1.55;
-    } else if (activity === 4) {
-        caloriesMaintain = BMR * 1.725;
-    } else if (activity === 5) {
-        caloriesMaintain = BMR * 1.9;
-    } else {
-        caloriesMaintain = BMR;
-    }
+    // if (activity === 1) {
+    //     caloriesMaintain = BMR * 1.2;
+    // } else if (activity === 2) {
+    //     caloriesMaintain = BMR * 1.375;
+    // } else if (activity === 3) {
+    //     caloriesMaintain = BMR * 1.55;
+    // } else if (activity === 4) {
+    //     caloriesMaintain = BMR * 1.725;
+    // } else if (activity === 5) {
+    //     caloriesMaintain = BMR * 1.9;
+    // } else {
+    //     caloriesMaintain = BMR;
+    // }
+
+    // activity - is a value from select, i.e. a string. It must be converted to a number!
+    let activityLevel = Number(activity);
+
+    // We get the coefficient by activity level (if not selected - default 1)
+    let coeff = activityCoeffs[activityLevel] || 1;
+
+    let caloriesMaintain = BMR * coeff;
+
 
     const baseMetabolism = caloriesMaintain * 0.8;
     caloriesLose = caloriesMaintain - (caloriesMaintain * 0.15);
