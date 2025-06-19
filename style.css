@@ -5,7 +5,7 @@
 }
 
 html {
-    min-width: 0;
+    min-width: 320px;
     width: 100%;
 }
 
@@ -696,19 +696,23 @@ form button:active {
         font-size: 0.7em;
     }
 
+    .footer {
+        font-size: 0.7em;
+        padding: 5px;
+    }
+
 }
 
 @media (max-width: 700px) {
     .mobile-menu {
-        right: 3vw;
-        /* чуть отступ справа */
-        left: auto;
-        /* убираем левый край */
-        min-width: 0;
-        max-width: 97vw;
-        width: 94vw;
-        border-radius: 12px;
-        padding: 8px 0;
+        margin-top: 15px;
+        width: 45vw;
+        min-width: 210px;
+        max-width: 90vw;
+        right: 1vw;
+        left: unset;
+        border-radius: 10px;
+        padding: 5px 3px;
     }
 }
 
@@ -731,11 +735,28 @@ form button:active {
     .menu-contacts {
         display: none;
     }
+
+    .footer-container {
+        padding: 42px;
+    }
+
+    .footer-logo {
+        padding-left: 20px;
+    }
 }
 
 @media (max-width:600px) {
     .menu-recipies {
         display: none;
+    }
+
+    footer .slogan {
+        display: none;
+    }
+
+    .footer-container {
+        padding: 62px;
+        gap: 32px;
     }
 }
 
@@ -744,6 +765,22 @@ form button:active {
         display: block;
         position: static;
         background: none;
+    }
+
+    .footer-container {
+
+        gap: 20px;
+    }
+
+    .mobile-menu {
+        margin-top: 15px;
+        width: 45vw;
+        min-width: 210px;
+        max-width: 90vw;
+        right: 1vw;
+        left: unset;
+        border-radius: 10px;
+        padding: 5px 3px;
     }
 }
 
@@ -754,15 +791,36 @@ form button:active {
     }
 
     .mobile-menu {
-        width: 97vw;
-        max-width: 99vw;
+        margin-top: 15px;
+        width: 45vw;
+        min-width: 210px;
+        max-width: 90vw;
         right: 1vw;
         left: unset;
         border-radius: 10px;
-        padding: 16px 0;
+        padding: 5px 3px;
     }
 
     .mobile-menu ul {
         padding: 0 3px;
     }
+
+
+    ul.footer-nav {
+        display: none;
+    }
+
+    .footer-container {
+
+        gap: 10px;
+    }
+
+    #calcForm {
+        width: 334px;
+    }
+
+    .resulth1 {
+        font-size: 15px;
+    }
+
 }
