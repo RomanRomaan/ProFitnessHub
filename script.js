@@ -167,17 +167,13 @@ form.addEventListener('submit', function (event) {
     const height = +document.getElementById('height').value;
     const weight = +document.getElementById('weight').value;
     const activity = +document.getElementById('Activity').value;
-    const reload = document.getElementById('reloadBtn')
+    const gender = document.getElementById('sex').value;
 
+    const reload = document.getElementById('reloadBtn');
+    reload.onclick = function () {
+        location.reload();
+    };
 
-
-    // Выводим для проверки:
-    console.log('Возраст:', age);
-    console.log('Рост:', height);
-    console.log('Вес:', weight);
-    console.log('Активность:', activity);
-
-    // Дальше делаешь расчёты...
     const resultDiv = document.getElementById('result');
     const resultInfoDiv = document.getElementById('result-info');
     const bmiInfoDiv = document.getElementById('bmi-info');
@@ -186,7 +182,13 @@ form.addEventListener('submit', function (event) {
 
 
 
-    const BMR = 10 * weight + 6.25 * height - 5 * age + 5;
+    let BMR;
+    if (gender === "male") {
+        BMR = 10 * weight + 6.25 * height - 5 * age + 5;
+    } else {
+        BMR = 10 * weight + 6.25 * height - 5 * age - 161;
+    }
+
     let caloriesMaintain;
 
     if (activity === 1) {
@@ -282,6 +284,3 @@ form.addEventListener('submit', function (event) {
 }
 
 );
-reload.onclick = function () {
-    location.reload();
-};
