@@ -1410,6 +1410,7 @@ form button:active {
 .double-card {
     display: flex;
     justify-content: center;
+
 }
 
 .exercises-grid.single-card .exercise-card {
