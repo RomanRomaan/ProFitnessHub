@@ -12,7 +12,7 @@ const exercises = [
         alt: "Push-ups",
         title: "Push-ups",
         desc: "Works chest, shoulders, and triceps.",
-        link: "#",
+        link: "/pushups.html",
         category: "Chest",
     },
     {

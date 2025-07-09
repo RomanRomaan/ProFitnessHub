@@ -1388,10 +1388,23 @@ form button:active {
 }
 
 #selectExerciseCategory {
-    width: 150px;
-
-
+    width: 220px;
+    min-width: 180px;
+    font-size: 1.08em;
+    border-radius: 8px;
+    border: 2px solid #137C59;
+    background: #f5fffa url('data:image/svg+xml;utf8,<svg fill="green" height="18" viewBox="0 0 20 20" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M5.293 7.293a1 1 0 0 1 1.414 0L10 10.586l3.293-3.293a1 1 0 1 1 1.414 1.414l-4 4a1 1 0 0 1-1.414 0l-4-4a1 1 0 0 1 0-1.414z"/></svg>') no-repeat right 12px center/18px 18px;
+    color: #137C59;
+    box-shadow: 0 2px 10px rgba(23, 169, 119, 0.09);
+    transition: border 0.2s, box-shadow 0.2s;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin-bottom: 28px;
 }
+
 
 .exercises-grid.single-card,
 .double-card {
