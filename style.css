@@ -1406,6 +1406,10 @@ form button:active {
 }
 
 
+.exercises-grid {
+    height: 100%;
+}
+
 .exercises-grid.single-card,
 .double-card {
     display: flex;
