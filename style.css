@@ -544,6 +544,871 @@ form button:active {
     display: none;
 }
 
+#selectExerciseCategory {
+    width: 150px;
+
+
+}
+
+.exercises-grid.single-card {
+    display: flex;
+    justify-content: center;
+}
+
+.exercises-grid.single-card .exercise-card {
+    max-width: 370px;
+    width: 100%;
+}
+
+/* ======================= Мобильное меню ======================== */
+
+/* -- Только wrapper если используешь .burger-menu-wrapper -- */
+.burger-menu-wrapper {
+    position: relative;
+}
+
+/* Кнопка бургер */
+.burger {
+    display: none;
+    width: 36px;
+    height: 36px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    z-index: 2020;
+}
+
+.burger span {
+    display: block;
+    width: 28px;
+    height: 4px;
+    margin: 4px 0;
+    background: #ddff00;
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+/* Показывать бургер и скрывать обычное меню на мобилках */
+@media (max-width: 900px) {
+
+    .menu,
+    .auth {
+        display: none;
+    }
+
+    .burger {
+        display: flex;
+    }
+}
+
+/* Стили самого мобильного меню - исправлено! */
+.mobile-menu {
+    display: none;
+    position: absolute;
+    top: 54px;
+    /* ниже хедера и бургер-иконки */
+    right: 16px;
+    /* отступ справа, чтобы не упиралось в край */
+    left: auto;
+    min-width: 210px;
+    max-width: 90vw;
+    background: linear-gradient(90deg, #137C59, #17A977);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.16);
+    padding: 12px 0;
+    z-index: 2100;
+    opacity: 0;
+    transform: translateY(-10px) scale(0.96);
+    transition: opacity .18s, transform .18s;
+}
+
+.mobile-menu.open {
+    display: block;
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.mobile-menu ul {
+    flex-direction: column;
+    gap: 10px;
+    margin: 0;
+    padding: 0 14px;
+    list-style: none;
+    display: flex;
+}
+
+.mobile-menu li {
+    width: 100%;
+}
+
+.mobile-menu a {
+    display: block;
+    width: 100%;
+    color: #fff;
+    padding: 9px 0;
+    border-radius: 8px;
+    font-size: 1.05em;
+    font-weight: 600;
+    text-align: left;
+    transition: background 0.15s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mobile-menu a:hover,
+.mobile-menu a.selected {
+    background: #137c59;
+    color: #ddff00;
+}
+
+/* Узкие экраны — меню не вылезает вправо */
+@media (max-width: 500px) {
+    .mobile-menu {
+        width: 95vw;
+        max-width: 98vw;
+        right: 2vw;
+        left: unset;
+        padding-left: 0;
+        padding-right: 0;
+        border-radius: 10px;
+    }
+
+    .mobile-menu ul {
+        padding: 0 6px;
+    }
+}
+
+@keyframes fadeInMenu {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* Твои адаптивные и доп. стили оставлены как есть ниже */
+
+@media (max-width: 942px) {
+
+    .auth {
+        font-size: 0.7em;
+    }
+
+    ul li {
+        font-size: 0.7em;
+    }
+
+    .logo a,
+    .slogan {
+        font-size: 0.7em;
+    }
+
+    .footer {
+        font-size: 0.7em;
+        padding: 5px;
+    }
+
+}
+
+@media (max-width: 700px) {
+    .mobile-menu {
+        margin-top: 15px;
+        width: 45vw;
+        min-width: 210px;
+        max-width: 90vw;
+        right: 1vw;
+        left: unset;
+        border-radius: 10px;
+        padding: 5px 3px;
+    }
+}
+
+@media (max-width:791px) {
+    .burger {
+        display: flex;
+        margin-right: 24px;
+    }
+
+    .auth {
+        display: none;
+    }
+
+    .menu {
+        display: none;
+    }
+}
+
+@media (max-width:669px) {
+    .menu-contacts {
+        display: none;
+    }
+
+    .footer-container {
+        padding: 42px;
+    }
+
+    .footer-logo {
+        padding-left: 20px;
+    }
+}
+
+@media (max-width:600px) {
+    .menu-recipies {
+        display: none;
+    }
+
+    footer .slogan {
+        display: none;
+    }
+
+    .footer-container {
+        padding: 62px;
+        gap: 32px;
+    }
+}
+
+@media (min-width: 530px) {
+    .menu {
+        display: block;
+        position: static;
+        background: none;
+    }
+
+    .footer-container {
+
+        gap: 20px;
+    }
+
+    .mobile-menu {
+        margin-top: 15px;
+        width: 45vw;
+        min-width: 210px;
+        max-width: 90vw;
+        right: 1vw;
+        left: unset;
+        border-radius: 10px;
+        padding: 5px 3px;
+    }
+}
+
+@media (max-width:529px) {
+
+    .menu {
+        display: none;
+    }
+
+    .mobile-menu {
+        margin-top: 15px;
+        width: 45vw;
+        min-width: 210px;
+        max-width: 90vw;
+        right: 1vw;
+        left: unset;
+        border-radius: 10px;
+        padding: 5px 3px;
+    }
+
+    .mobile-menu ul {
+        padding: 0 3px;
+    }
+
+
+    ul.footer-nav {
+        display: none;
+    }
+
+    .footer-container {
+
+        gap: 10px;
+    }
+
+    #calcForm {
+        width: 334px;
+    }
+
+    .resulth1 {
+        font-size: 15px;
+    }
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    min-width: 320px;
+    width: 100%;
+}
+
+body {
+
+    font-family: 'Montserrat', Arial, sans-serif;
+    color: #222;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 600;
+}
+
+.container {
+
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    width: 100%;
+}
+
+.header {
+    background: linear-gradient(90deg, #137C59, #17A977);
+    color: #fff;
+    padding: 20px 0;
+    border-bottom: 2px solid #000000;
+    width: 100vw;
+    /* min-width: 320px; */
+    /* left: 0; */
+    /* top: 0; */
+    position: relative;
+    /* z-index: 10; */
+}
+
+/* Только для хедера! */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Остальное без display: flex на .container! */
+
+.logo a {
+    display: flex;
+    align-items: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6em;
+    font-weight: 800;
+    color: #00ff80;
+    letter-spacing: 2px;
+    transition: color 0.2s;
+}
+
+.logo a:hover {
+    color: #17a977;
+}
+
+.slogan {
+    font-size: 1em;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 400;
+    margin-left: 8px;
+    letter-spacing: 1px;
+}
+
+.menu ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.auth {
+    font-size: 1em;
+}
+
+.main {
+    margin-top: 40px;
+}
+
+.main-banner {
+    background: #f9fffc;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 48px 60px;
+    gap: 48px;
+    /* max-width: 1000px; */
+    width: 100%;
+    margin: 40px auto;
+}
+
+.banner-text {
+    flex: 1;
+    text-align: left;
+}
+
+.banner-text h1 {
+    font-size: 2.7em;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 24px;
+}
+
+.banner-text p {
+    font-size: 1.25em;
+    margin-bottom: 32px;
+    color: #222;
+}
+
+.banner-text button {
+    background: #179a4a;
+    color: #fff;
+    font-weight: 700;
+    padding: 16px 36px;
+    font-size: 1.25em;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.banner-text button:hover {
+    background: #137c59;
+}
+
+.banner-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.banner-image img {
+    border-radius: 18px;
+    width: 100%;
+    max-width: 380px;
+    height: auto;
+    object-fit: cover;
+}
+
+/* footer */
+
+.footer {
+    background: linear-gradient(90deg, #013826, #000000);
+    color: #fff;
+    padding: 20px 0;
+    border-bottom: 2px solid #928c8c;
+}
+
+
+.footer-container {
+    display: flex;
+    flex-direction: row;
+    /* ← ключевой момент */
+    justify-content: center;
+    gap: 80px;
+    /* расстояние между колонками */
+    align-items: flex-start;
+    /* выравнивание по верху */
+    padding: 32px 0;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.footer-col a {
+    color: #fff;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.footer-col a:hover {
+    color: #00ff80;
+}
+
+.footer-col p {
+    font-weight: bold;
+}
+
+/* ========== Exercises page ========== */
+.exercises-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 32px;
+    margin: 40px auto;
+    max-width: 1000px;
+}
+
+.exercise-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
+    padding: 24px;
+    text-align: center;
+    transition: transform 0.18s;
+
+}
+
+.exercise-card:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 8px 36px rgba(0, 0, 0, 0.10);
+}
+
+.exercise-card img {
+    width: 141px;
+    height: 116px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 18px;
+}
+
+.exercises-title {
+    font-size: 2.2em;
+    font-weight: 800;
+    margin-bottom: 36px;
+}
+
+.exercise-card p {
+    margin-bottom: 20px;
+    font-size: 0.95em;
+    color: #666;
+
+}
+
+/* .exercise-card button {
+    background: #179a4a;
+    color: #fff;
+    font-weight: 700;
+    padding: 8px 18px;
+    font-size: 1.25em;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
+    cursor: pointer;
+    transition: background 0.2s;
+} */
+
+button {
+    background: #179a4a;
+    color: #fff;
+    font-weight: 700;
+    padding: 8px 18px;
+    font-size: 1.25em;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 800px) {
+    .exercises-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ------exercises full card------- */
+.exercise-image img {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 5%;
+    margin-bottom: 18px;
+}
+
+.exercise-info h1,
+.exercise-info p,
+.exercise-info h3,
+.exercise-info ul,
+.exercise-info li {
+    margin-bottom: 20px;
+}
+
+.exercise-demo {
+    display: flex;
+}
+
+.exercise-demo video {
+    max-width: 400px;
+    /* ширина по макету, можешь изменить */
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    display: block;
+    margin: 0 auto 24px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+.exercise-img {
+    display: flex;
+    justify-content: space-between;
+    /* gap: 40px; */
+}
+
+a.selected {
+    color: rgb(217, 255, 0);
+    text-decoration: none;
+    pointer-events: none;
+}
+
+a:hover {
+
+    text-decoration: underline;
+}
+
+/* ------------kcal output--- */
+
+.result-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 6px 32px rgba(23, 169, 119, 0.09);
+    padding: 32px 36px;
+    margin: 42px auto;
+    max-width: 420px;
+    min-width: 260px;
+    text-align: center;
+    border: 2px solid #e0f7ef;
+    transition: box-shadow 0.2s;
+    opacity: 0;
+    transform: translateY(24px);
+    animation: fadeIn 0.7s ease forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.result-card h2 {
+    margin-bottom: 20px;
+    color: #179a4a;
+    font-size: 1.4em;
+    letter-spacing: 1px;
+}
+
+.result-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.result-card li {
+    margin-bottom: 16px;
+    font-size: 1.1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f6fffa;
+    border-radius: 12px;
+    padding: 10px 18px;
+    min-width: 320px;
+    gap: 10px;
+    /* чуть увеличим расстояние */
+}
+
+.result-card span {
+    color: #137c59;
+    font-weight: 600;
+}
+
+.result-card b {
+    color: #ffd600;
+    font-size: 1.25em;
+    font-weight: 700;
+    margin-left: 10px;
+}
+
+.result-card .result-label {
+    flex: 2;
+    text-align: left;
+    color: #179a4a;
+    font-weight: 700;
+}
+
+.result-card .result-value {
+    flex: 1;
+    text-align: right;
+    font-weight: 800;
+    color: #e1bd02;
+    font-size: 1.15em;
+    letter-spacing: 1px;
+}
+
+.result-card .result-unit {
+    color: #999;
+    font-weight: 400;
+    font-size: 0.98em;
+    margin-left: 3px;
+}
+
+.center-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* для вертикального центрирования */
+    height: 100px;
+    /* или auto, или 100vh для по центру всей страницы */
+}
+
+.results-inner {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#bmi-info {
+    padding-top: 150px;
+    width: 20px;
+}
+
+.bmi-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    /* занимает всю высоту родителя */
+}
+
+.bmi-label {
+    font-size: 1.5em;
+    margin-bottom: 18px;
+    color: #222;
+}
+
+.bmi-value {
+    font-size: 2.8em;
+    font-weight: 800;
+    color: #07ac07;
+    background: #222;
+    border-radius: 10px;
+    padding: 10px 36px;
+    margin-bottom: 12px;
+    margin-top: 4px;
+}
+
+.bmi-badvalue {
+    font-size: 2.8em;
+    font-weight: 800;
+    color: #ff0000;
+    background: #222;
+    border-radius: 10px;
+    padding: 10px 36px;
+    margin-bottom: 12px;
+    margin-top: 4px;
+}
+
+.result-card .red-value {
+    color: #ff0000;
+    font-weight: 600;
+}
+
+.bmi-normal {
+    font-size: 1.2em;
+    color: #888;
+}
+
+#bmi-info.result-card {
+
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    /* убираем внутренний отступ, чтобы не мешал */
+    min-height: 100%;
+    /* если нужно на всю высоту */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.10);
+    width: 370px;
+    padding: 36px 28px;
+    margin: 0 auto 40px auto;
+    /* по центру */
+    gap: 22px;
+}
+
+input,
+select {
+    width: 100%;
+    height: 36px;
+    padding: 0 12px;
+    border-radius: 10px;
+    border: 1px solid #b8e2d5;
+    background: #f9fffc;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    font-size: 1.08em;
+    transition: border .2s;
+}
+
+input:focus,
+select:focus {
+    border: 1.7px solid #cdc307;
+    outline: none;
+}
+
+label {
+    color: #179a4a;
+    font-size: 1em;
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+input::placeholder {
+    opacity: 0.5;
+}
+
+form button {
+    margin-top: 12px;
+    margin: auto;
+}
+
+form button:active {
+    transform: scale(0.97);
+}
+
+#reloadBtn {
+    display: none;
+}
+
+#selectExerciseCategory {
+    width: 150px;
+
+
+}
+
+.exercises-grid.single-card,
+.double-card {
+    display: flex;
+    justify-content: center;
+}
+
+.exercises-grid.single-card .exercise-card {
+    max-width: 370px;
+    width: 100%;
+}
+
+.exercises-grid.double-card .exercise-card {
+    max-width: 312px;
+    width: 100%;
+}
+
 /* ======================= Мобильное меню ======================== */
 
 /* -- Только wrapper если используешь .burger-menu-wrapper -- */

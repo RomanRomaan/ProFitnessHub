@@ -322,3 +322,4 @@ document.addEventListener('click', (e) => {
         mobileMenu.classList.remove('open');
     }
 });
+
